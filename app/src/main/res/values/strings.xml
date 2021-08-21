@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Picsar</string>
+    <string name="menu_account">profile</string>
+    <string name="menu_search">search</string>
+    <string name="menu_home">home</string>
+    <string name="explore">Explore</string>
+
+</resources>
