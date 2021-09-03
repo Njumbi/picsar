@@ -1,20 +1,27 @@
 package com.example.picsar.ui.adapters
 
+import android.graphics.drawable.Drawable
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.picsar.R
 import com.example.picsar.ui.data.model.PhotosResponseItem
+import com.example.picsar.ui.fragments.HomeFragment
 import com.example.picsar.ui.fragments.TimeAgo
 import kotlinx.android.synthetic.main.item_list_photos.view.*
+import com.example.picsar.ui.AdapterListener
+import kotlinx.android.synthetic.main.item_list_photos.*
+import java.security.AccessController.getContext
 
 
-class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeAdapterVH>() {
+class HomeAdapter(homeFragment: HomeFragment) : RecyclerView.Adapter<HomeAdapter.HomeAdapterVH>() {
 
     private val data = arrayListOf<PhotosResponseItem>()
+    private var listener: AdapterListener? = null
 
     fun setData(list: List<PhotosResponseItem>) {
         data.clear()
@@ -25,6 +32,10 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeAdapterVH>() {
     fun clear() {
         data.clear()
         notifyDataSetChanged()
+    }
+
+    fun setListener( listener: AdapterListener ){
+        this.listener = listener
     }
 
     class HomeAdapterVH(view: View) : RecyclerView.ViewHolder(view) {
@@ -56,6 +67,8 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeAdapterVH>() {
         var timeAgo =data[position].updatedAt
         holder.itemView.tv_createdAt.text =  TimeAgo.covertTimeToText( timeAgo )
 
+
+
         Glide
             .with(holder.itemView.context)
             .load(data[position].user?.profileImage?.medium)
@@ -70,6 +83,40 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeAdapterVH>() {
             .centerCrop()
             .placeholder(android.R.color.darker_gray)
             .into(holder.itemView.iv_picture);
+
+
+        holder.itemView.iv_favorite.setOnClickListener {
+            listener?.myListener( data[position])
+
+                if ( holder.itemView.iv_favorite.drawable.constantState == holder.itemView.getContext().getResources().getDrawable(R.drawable.baseline_favorite_red_500_24dp)?.constantState) {
+                    val mDrawable: Drawable =
+                        holder.itemView.getContext() .getResources().getDrawable(R.drawable.baseline_favorite_border_black_24dp)
+                         holder.itemView.iv_favorite.setImageDrawable(mDrawable)
+
+
+                } else {
+                    val mDrawable: Drawable =
+                        holder.itemView.getContext().getResources().getDrawable(R.drawable.baseline_favorite_red_500_24dp)
+                    holder.itemView.iv_favorite.setImageDrawable(mDrawable)
+
+                }
+            }
+
+        holder.itemView.saved.setOnClickListener{
+            listener?.myListener(data[position])
+            if ( holder.itemView.saved.drawable.constantState == holder.itemView.getContext().getResources().getDrawable(R.drawable.baseline_turned_in_black_36dp)?.constantState){
+
+                val mDrawable: Drawable = holder.itemView.getContext().getResources().getDrawable(R.drawable.baseline_turned_in_white_36dp)
+                holder.itemView.saved.setImageDrawable(mDrawable)
+
+            }else{
+
+                    val mDrawable: Drawable =
+                        holder.itemView.getContext().getResources().getDrawable(R.drawable.baseline_turned_in_black_36dp)
+                holder.itemView.saved.setImageDrawable(mDrawable)
+            }
+
+        }
 
 
     }

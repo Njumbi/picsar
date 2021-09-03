@@ -18,7 +18,6 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.AuthResult
 
 
-
 import com.google.android.gms.tasks.OnCompleteListener
 
 
@@ -35,13 +34,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 
-class ProfileFragment: Fragment() {
+class ProfileFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
-
     private lateinit var googleSignInClient: GoogleSignInClient
-
-    private var fDatastore: FirebaseFirestore? = null
-
     private var mAuthListener: FirebaseAuth.AuthStateListener? = null
 
     override fun onCreateView(
@@ -56,8 +51,13 @@ class ProfileFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         auth = Firebase.auth
+        pb_one.visibility = View.GONE
+        ll_welcome.visibility = View.GONE
+        fragment_account.visibility = View.VISIBLE
 
-        // Configure Google Sign In
+        signIn()
+        signOut()
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken("1097831543922-vdkoksjtqn87cfb2dqpi6v8r6gdoopce.apps.googleusercontent.com")
             .requestEmail()
@@ -65,7 +65,6 @@ class ProfileFragment: Fragment() {
 
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
 
-        signIn()
 
         register.setOnClickListener {
             if (TextUtils.isEmpty(et_email.text)) {
@@ -104,51 +103,37 @@ class ProfileFragment: Fragment() {
         mAuthListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
             val user = firebaseAuth.currentUser
             if (user != null) {
-
-                pb_one.visibility = View.GONE
-
+                pb_one.visibility = View.VISIBLE
+                fragment_account.visibility = View.GONE
                 ll_welcome.visibility = View.VISIBLE
-//                tl_welcome.text = "Welcome: " + user?.displayName
-//                tl_welcome_email.text="Email: " + user?.email
 
             } else {
                 pb_one.visibility = View.GONE
                 ll_welcome.visibility = View.GONE
-            }
-            //   updateUI(user)
-        }
+                fragment_account.visibility = View.VISIBLE
 
+            }
+
+        }
 
 
     }
 
     override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
         auth!!.addAuthStateListener(mAuthListener!!)
-        //updateUI(currentUser)
-    }
-
-
-    private fun signIn() {
-        val signInIntent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
-                // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)!!
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
-                // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e)
             }
         }
@@ -159,16 +144,25 @@ class ProfileFragment: Fragment() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
-                    // updateUI(user)
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    //updateUI(null)
                 }
             }
+    }
+
+    private fun signIn() {
+        sign_in_button.setOnClickListener {
+            val signInIntent = googleSignInClient.signInIntent
+            startActivityForResult(signInIntent, RC_SIGN_IN)
+        }
+    }
+
+    private fun signOut() {
+        logout.setOnClickListener {
+            auth!!.signOut()
+        }
     }
 
 
@@ -176,7 +170,6 @@ class ProfileFragment: Fragment() {
         private const val TAG = "GoogleActivity"
         private const val RC_SIGN_IN = 9001
     }
-
 
 
 }

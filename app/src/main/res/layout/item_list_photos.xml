@@ -107,7 +107,7 @@
             android:layout_alignBottom="@id/iv_picture"
             android:layout_marginLeft="35dp"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/baseline_circle_black_48dp"
+            android:background="@drawable/baseline_circle_white_36dp"
             android:padding="5dp">
 
             <ImageView
@@ -116,7 +116,7 @@
                 android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="20dp"
-                android:src="@drawable/baseline_favorite_white_18dp" />
+                android:src="@drawable/baseline_favorite_border_black_36dp" />
 
         </RelativeLayout>
 
