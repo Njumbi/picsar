@@ -3,6 +3,7 @@ package com.example.picsar.ui.data.model
 
 import com.google.gson.annotations.SerializedName
 import androidx.annotation.Keep
+import java.io.Serializable
 
 class TopicResponse : ArrayList<TopicResponseItem>() {}
 
@@ -44,7 +45,7 @@ data class TopicResponseItem(
     var totalPhotos: Int?, // 5681
     @SerializedName("updated_at")
     var updatedAt: String? // 2021-08-17T04:00:22-04:00
-) {}
+): Serializable {}
 
 @Keep
 data class CoverPhoto(
@@ -84,7 +85,7 @@ data class CoverPhoto(
     var user: User?,
     @SerializedName("width")
     var width: Int? // 2515
-) {}
+) :Serializable{}
 
 @Keep
 data class Owner(
@@ -126,7 +127,7 @@ data class Owner(
     var updatedAt: String?, // 2021-08-17T12:20:03-04:00
     @SerializedName("username")
     var username: String? // unsplash
-) {}
+) :Serializable{}
 
 @Keep
 data class PreviewPhoto(
@@ -140,4 +141,4 @@ data class PreviewPhoto(
     var updatedAt: String?, // 2021-08-16T20:24:31-04:00
     @SerializedName("urls")
     var urls: Urls?
-)
+):Serializable

@@ -1,20 +1,34 @@
 package com.example.picsar.ui.adapters
 
+import android.app.PendingIntent.getActivity
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import com.example.picsar.R
 import com.example.picsar.ui.data.model.PhotosResponseItem
 import com.example.picsar.ui.fragments.HomeFragment
 import com.example.picsar.ui.fragments.TimeAgo
 import kotlinx.android.synthetic.main.item_list_photos.view.*
 import com.example.picsar.ui.AdapterListener
+import com.example.picsar.ui.WallpaperActivity
 import kotlinx.android.synthetic.main.item_list_photos.*
+import kotlinx.android.synthetic.main.list_item_random_photos.view.*
 import java.security.AccessController.getContext
 
 
@@ -67,8 +81,15 @@ class HomeAdapter(homeFragment: HomeFragment) : RecyclerView.Adapter<HomeAdapter
         var timeAgo =data[position].updatedAt
         holder.itemView.tv_createdAt.text =  TimeAgo.covertTimeToText( timeAgo )
 
+        holder.itemView.iv_picture.setOnClickListener {
+            val intent = Intent(holder.itemView.context, WallpaperActivity::class.java)
+            intent.putExtra("data", data[position])
+            holder.itemView.context. startActivity(intent)
+        }
 
-
+        val requestOptions = RequestOptions()
+        requestOptions.error(R.drawable.smiley)
+            holder.itemView.pb_home_page.visibility = View.VISIBLE
         Glide
             .with(holder.itemView.context)
             .load(data[position].user?.profileImage?.medium)
@@ -77,12 +98,37 @@ class HomeAdapter(homeFragment: HomeFragment) : RecyclerView.Adapter<HomeAdapter
             .into(holder.itemView.iv_profile_image);
 
 
-        Glide
-            .with(holder.itemView.context)
-            .load(data[position].urls?.small)
-            .centerCrop()
-            .placeholder(android.R.color.darker_gray)
-            .into(holder.itemView.iv_picture);
+        Glide.with(holder.itemView.context)
+            .setDefaultRequestOptions(requestOptions)
+            .load(data[position]?.urls?.small)
+            .listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    holder.itemView.pb_home_page.visibility  =View.GONE
+                    return false
+                }
+
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: com.bumptech.glide.load.DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    holder.itemView.pb_home_page.visibility  =View.GONE
+                    return false
+                }
+
+
+            })
+            .into(holder.itemView.iv_picture)
+
+
+
 
 
         holder.itemView.iv_favorite.setOnClickListener {
@@ -117,6 +163,8 @@ class HomeAdapter(homeFragment: HomeFragment) : RecyclerView.Adapter<HomeAdapter
             }
 
         }
+
+
 
 
     }

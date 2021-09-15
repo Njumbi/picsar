@@ -41,8 +41,7 @@ class SearchFragment :Fragment() {
             val intent = Intent(activity,SearchPhotosActivity::class.java)
             startActivity(intent)
         }
-        pb_Explore.visibility = View.VISIBLE
-        rv_random_photos.visibility = View.GONE
+
 
     }
 
@@ -57,8 +56,6 @@ class SearchFragment :Fragment() {
                 if (response.isSuccessful){
                     val list = response?.body()
                     adapter.setData(list !!)
-                    pb_Explore.visibility = View.GONE
-                    rv_random_photos.visibility = View.VISIBLE
 
                 }else{
                     Toast.makeText(requireActivity(), response.errorBody().toString(), Toast.LENGTH_SHORT).show()

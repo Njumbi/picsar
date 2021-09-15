@@ -3,48 +3,50 @@ package com.example.picsar.ui.data.model
 
 import com.google.gson.annotations.SerializedName
 import androidx.annotation.Keep
+import java.io.Serializable
 
 class PhotosResponse : ArrayList<PhotosResponseItem>() {}
 
 @Keep
 data class PhotosResponseItem(
     @SerializedName("alt_description")
-    var altDescription: String?, // brown rocky mountain under white sky during daytime
+    var altDescription: String?=null, // brown rocky mountain under white sky during daytime
     @SerializedName("blur_hash")
-    var blurHash: String?, // LVDlycR*ayof~qWBayfRIrayj@WC
+    var blurHash: String?=null, // LVDlycR*ayof~qWBayfRIrayj@WC
     @SerializedName("categories")
-    var categories: List<Any?>?,
+    var categories: List<Any?>?=null,
     @SerializedName("color")
-    var color: String?, // #0c2626
+    var color: String?=null, // #0c2626
     @SerializedName("created_at")
-    var createdAt: String?, // 2021-08-15T12:35:48-04:00
+    var createdAt: String?=null, // 2021-08-15T12:35:48-04:00
     @SerializedName("current_user_collections")
-    var currentUserCollections: List<Any?>?,
+    var currentUserCollections: List<Any?>?=null,
     @SerializedName("description")
-    var description: Any?, // null
+    var description: Any?=null, // null
     @SerializedName("height")
-    var height: Int?, // 5472
+    var height: Int?=null, // 5472
     @SerializedName("id")
-    var id: String?, // OV_Zi82m63U
+    var id: String?=null, // OV_Zi82m63U
     @SerializedName("liked_by_user")
-    var likedByUser: Boolean?, // false
+    var likedByUser: Boolean?=null, // false
     @SerializedName("likes")
-    var likes: Int?, // 72
+    var likes: Int?=null, // 72
     @SerializedName("links")
-    var links: UrlLinks?,
+    var links: UrlLinks?=null,
     @SerializedName("promoted_at")
-    var promotedAt: String?, // 2021-08-15T19:48:02-04:00
+    var promotedAt: String?=null, // 2021-08-15T19:48:02-04:00
     @SerializedName("sponsorship")
-    var sponsorship: Sponsorship?,
+    var sponsorship: Sponsorship?=null,
     @SerializedName("updated_at")
-    var updatedAt: String?, // 2021-08-16T03:15:15-04:00
+    var updatedAt: String?=null, // 2021-08-16T03:15:15-04:00
     @SerializedName("urls")
-    var urls: Urls?,
+    var urls: Urls?=null,
     @SerializedName("user")
-    var user: User?,
+    var user: User?=null,
     @SerializedName("width")
-    var width: Int? // 3648
-) {}
+    var width: Int?=null // 3648
+) :Serializable{
+}
 
 @Keep
 data class UrlLinks(
@@ -56,7 +58,7 @@ data class UrlLinks(
     var html: String?, // https://unsplash.com/photos/OV_Zi82m63U
     @SerializedName("self")
     var self: String? // https://api.unsplash.com/photos/OV_Zi82m63U
-)
+) : Serializable
 
 @Keep
 data class Sponsorship(
@@ -68,7 +70,7 @@ data class Sponsorship(
     var tagline: String?, // Keep it real. Keep it Tyson.
     @SerializedName("tagline_url")
     var taglineUrl: String? // https://www.tyson.com/
-) {}
+):Serializable
 
 @Keep
 data class Sponsor(
@@ -110,7 +112,7 @@ data class Sponsor(
     var updatedAt: String?, // 2021-08-16T03:40:46-04:00
     @SerializedName("username")
     var username: String? // tysonbrand
-) {}
+): Serializable {}
 
 @Keep
 data class SocialLinks(
@@ -128,7 +130,7 @@ data class SocialLinks(
     var portfolio: String?, // https://api.unsplash.com/users/tysonbrand/portfolio
     @SerializedName("self")
     var self: String? // https://api.unsplash.com/users/tysonbrand
-)
+): Serializable
 
 @Keep
 data class UserImage(
@@ -138,7 +140,7 @@ data class UserImage(
     var medium: String?, // https://images.unsplash.com/profile-1625772672316-7eda84f9ffc5image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64
     @SerializedName("small")
     var small: String? // https://images.unsplash.com/profile-1625772672316-7eda84f9ffc5image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32
-)
+):Serializable
 
 @Keep
 data class SocialMedia(
@@ -150,7 +152,7 @@ data class SocialMedia(
     var portfolioUrl: String?, // https://www.tyson.com/
     @SerializedName("twitter_username")
     var twitterUsername: String?
-)
+):Serializable
 
 
 @Keep
@@ -165,7 +167,7 @@ data class Urls(
     var small: String?, // https://images.unsplash.com/photo-1629045198735-9d1c675e6d5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNTI5NTR8MHwxfGFsbHwxMHx8fHx8fDJ8fDE2MjkwOTk3NzQ&ixlib=rb-1.2.1&q=80&w=400
     @SerializedName("thumb")
     var thumb: String? // https://images.unsplash.com/photo-1629045198735-9d1c675e6d5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNTI5NTR8MHwxfGFsbHwxMHx8fHx8fDJ8fDE2MjkwOTk3NzQ&ixlib=rb-1.2.1&q=80&w=200
-)
+):Serializable
 
 @Keep
 data class User(
@@ -207,7 +209,7 @@ data class User(
     var updatedAt: String?, // 2021-08-16T03:38:08-04:00
     @SerializedName("username")
     var username: String? // alex_gruber
-) {}
+):Serializable {}
 
 @Keep
 data class Links(
@@ -225,7 +227,7 @@ data class Links(
     var portfolio: String?, // https://api.unsplash.com/users/alex_gruber/portfolio
     @SerializedName("self")
     var self: String? // https://api.unsplash.com/users/alex_gruber
-)
+):Serializable
 
 @Keep
 data class ProfileImage(
@@ -235,7 +237,7 @@ data class ProfileImage(
     var medium: String?, // https://images.unsplash.com/profile-1537596850074-1b4b0ce97f33?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64
     @SerializedName("small")
     var small: String? // https://images.unsplash.com/profile-1537596850074-1b4b0ce97f33?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32
-)
+): Serializable
 
 @Keep
 data class Social(
@@ -247,4 +249,4 @@ data class Social(
     var portfolioUrl: String?, // http://www.lowfidelity.at
     @SerializedName("twitter_username")
     var twitterUsername: String? // m0c0000
-)
+):Serializable
