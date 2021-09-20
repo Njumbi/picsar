@@ -9,11 +9,15 @@ import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.picsar.R
 import com.example.picsar.ui.adapters.SearchPhotosAdapter
 import com.example.picsar.ui.data.ApiClient
+import com.example.picsar.ui.data.model.PhotosResponseItem
 import com.example.picsar.ui.data.model.SearchResponse
+import com.example.picsar.ui.viewmodel.SearchPicturesVM
 import kotlinx.android.synthetic.main.activity_search_photos.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,9 +26,13 @@ import retrofit2.Response
 class SearchPhotosActivity : AppCompatActivity() {
     private lateinit var adapter: SearchPhotosAdapter
 
+    private lateinit var searchedPhotosVM: SearchPicturesVM
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_photos)
+
+        searchedPhotosVM = ViewModelProvider(this).get(SearchPicturesVM::class.java)
 
         setSupportActionBar(toolbarOne)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -65,41 +73,31 @@ class SearchPhotosActivity : AppCompatActivity() {
 
     }
 
-    private fun search(query: String) {
-        var call = ApiClient().service?.getSearchedPhotos(query)
-        call?.enqueue(object : Callback<SearchResponse> {
-            override fun onResponse(
-                call: Call<SearchResponse>,
-                response: Response<SearchResponse>
-            ) {
-                if (response.isSuccessful) {
-                    val list = response?.body()?.results
-                    if (list.isNullOrEmpty()) {
-                        tv_search_no_data.visibility = View.VISIBLE
-                    } else {
-                        adapter.setData(list)
-                        tv_search_no_data.visibility = View.GONE
-                    }
-                } else {
-                    Toast.makeText(
-                        this@SearchPhotosActivity,
-                        response.errorBody().toString(),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    Log.d("an error", response.errorBody().toString())
+    private fun search(query:String) {
+      Log.d("this is the query",query)
+        searchedPhotosVM?.loadSearchedPhotos(query)
+
+        searchedPhotosVM?.searchedPhotosLiveData?.observe(this,{
+            if (it is SearchResponse){
+                if(it?.results.isNullOrEmpty()){
+                    tv_search_no_data.visibility = View.VISIBLE
+                }else{
+                    adapter.setData(it.results!!)
+                    tv_search_no_data.visibility = View.GONE
                 }
-            }
 
-            override fun onFailure(call: Call<SearchResponse>, t: Throwable) {
-                Toast.makeText(this@SearchPhotosActivity, t.message, Toast.LENGTH_SHORT).show()
-                Log.d(t.message,"on failure")
-            }
 
+            }else{
+                Toast.makeText(
+                    this,
+                    it.toString(),
+                    Toast.LENGTH_SHORT
+                ).show()
+                Log.d("an error", it.toString())
+
+            }
         })
-
-
     }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home)
             finish()

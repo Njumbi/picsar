@@ -3,11 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_search_photos.xml" value="0.1398148148148148" />
+        <entry key="../../../../layout/custom_preview.xml" value="0.15555555555555556" />
+        <entry key="app/src/main/res/drawable/animate.xml" value="0.15555555555555556" />
+        <entry key="app/src/main/res/drawable/baseline_circle_black_48dp.xml" value="0.1361111111111111" />
+        <entry key="app/src/main/res/drawable/baseline_circle_grey_400_36dp.xml" value="0.1361111111111111" />
+        <entry key="app/src/main/res/drawable/progress_bar_animate.xml" value="0.35185185185185186" />
+        <entry key="app/src/main/res/layout/activity_explore.xml" value="0.3734375" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.30925925925925923" />
+        <entry key="app/src/main/res/layout/activity_search_photo_details_activitty.xml" value="0.3734375" />
+        <entry key="app/src/main/res/layout/activity_search_photos.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_wallpaper.xml" value="0.2802056555269923" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.12314814814814815" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.34987593052109184" />
+        <entry key="app/src/main/res/layout/item_list_photos.xml" value="0.12314814814814815" />
         <entry key="app/src/main/res/layout/list_item_random_photos.xml" value="0.1" />
         <entry key="app/src/main/res/layout/search_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1398148148148148" />
+        <entry key="app/src/main/res/menu/settings.xml" value="0.1" />
       </map>
     </option>
   </component>

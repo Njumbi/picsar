@@ -16,6 +16,7 @@
 
 
         <EditText
+            android:textCursorDrawable="@null"
             android:id="@+id/et_search_all_photos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,7 +42,7 @@
         android:gravity="center"
         android:padding="40dp"
         android:text="No results found"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_photos_search"
