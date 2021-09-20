@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.picsar.R
@@ -14,6 +15,7 @@ import com.example.picsar.ui.SearchPhotosActivity
 import com.example.picsar.ui.adapters.SearchAdapter
 import com.example.picsar.ui.data.ApiClient
 import com.example.picsar.ui.data.model.TopicResponse
+import com.example.picsar.ui.viewmodel.SearchVM
 import kotlinx.android.synthetic.main.search_fragment.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,11 +24,15 @@ import retrofit2.Response
 class SearchFragment :Fragment() {
     private lateinit var adapter : SearchAdapter
 
+    private lateinit var searchVm :SearchVM
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        searchVm = ViewModelProvider(this).get(SearchVM::class.java)
+
         return inflater.inflate(R.layout.search_fragment,container,false)
     }
 
@@ -47,28 +53,19 @@ class SearchFragment :Fragment() {
 
 
     private fun loadRandomPhotos() {
-        var call = ApiClient()?.service?.getTopicPhotos()
-        call?.enqueue(object : Callback<TopicResponse>{
-            override fun onResponse(
-                call: Call<TopicResponse>,
-                response: Response<TopicResponse>
-            ) {
-                if (response.isSuccessful){
-                    val list = response?.body()
-                    adapter.setData(list !!)
+        searchVm?.loadRandomPhotos()
 
-                }else{
-                    Toast.makeText(requireActivity(), response.errorBody().toString(), Toast.LENGTH_SHORT).show()
-                    println(response.errorBody().toString())
-                }
-            }
-
-            override fun onFailure(call: Call<TopicResponse>, t: Throwable) {
-                Toast.makeText(requireActivity(), t.message, Toast.LENGTH_SHORT).show()
-                println("this is on failure")
-                println(t.message)
-
+        searchVm?.loadRandomPhotosLiveData?.observe(viewLifecycleOwner,{
+            if (it is TopicResponse){
+                adapter.setData(it)
+            }else{
+                Toast.makeText(
+                    requireActivity(),
+                    it.toString(),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
+
     }
 }
