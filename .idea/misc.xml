@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/layout/activity_explore.xml" value="0.3734375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.30925925925925923" />
         <entry key="app/src/main/res/layout/activity_search_photo_details_activitty.xml" value="0.3734375" />
+        <entry key="app/src/main/res/layout/activity_search_photo_details_activity.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_search_photos.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_wallpaper.xml" value="0.2802056555269923" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.12314814814814815" />
@@ -23,7 +24,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="corretto-16" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
