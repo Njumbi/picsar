@@ -1,4 +1,4 @@
-package com.example.picsar.ui.fragments
+package com.example.picsar.picsar.ui.fragments
 
 import android.util.Log
 import java.text.ParseException

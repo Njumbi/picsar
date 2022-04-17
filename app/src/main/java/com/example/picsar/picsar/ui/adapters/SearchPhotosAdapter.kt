@@ -1,4 +1,4 @@
-package com.example.picsar.ui.adapters
+package com.example.picsar.picsar.ui.adapters
 
 import android.content.Intent
 import android.graphics.drawable.Drawable
@@ -12,31 +12,33 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.example.picsar.R
-import com.example.picsar.ui.SearchPhotoDetailsActivity
-import com.example.picsar.ui.data.model.PhotosResponseItem
+import com.example.picsar.picsar.SearchPhotoDetailsActivity
+import com.example.picsar.picsar.domain.PhotosItem
 import kotlinx.android.synthetic.main.list_item_random_photos.view.*
 
-class SearchPhotosAdapter:RecyclerView.Adapter<SearchPhotosAdapter.SearchPhotosAdapterVh>() {
-    private val data = arrayListOf<PhotosResponseItem?>()
+class SearchPhotosAdapter : RecyclerView.Adapter<SearchPhotosAdapter.SearchPhotosAdapterVh>() {
+    private val data = arrayListOf<PhotosItem?>()
 
-    fun setData(list: List<PhotosResponseItem?>){
+    fun setData(list: List<PhotosItem?>) {
         data.clear()
         data.addAll(list)
         notifyDataSetChanged()
     }
-    fun clear(){
+
+    fun clear() {
         data.clear()
         notifyDataSetChanged()
     }
 
-    class SearchPhotosAdapterVh(view: View): RecyclerView.ViewHolder(view) {
+    class SearchPhotosAdapterVh(view: View) : RecyclerView.ViewHolder(view) {
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchPhotosAdapterVh {
-      return SearchPhotosAdapterVh(
-          LayoutInflater.from(parent.context).inflate(R.layout.list_item_random_photos,parent,false)
-      )
+        return SearchPhotosAdapterVh(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.list_item_random_photos, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: SearchPhotosAdapterVh, position: Int) {
@@ -48,7 +50,7 @@ class SearchPhotosAdapter:RecyclerView.Adapter<SearchPhotosAdapter.SearchPhotosA
 
         Glide.with(holder.itemView.context)
             .setDefaultRequestOptions(requestOptions)
-            .load(data[position]?.urls?.small)
+            .load(data[position]?.imageLinks?.small)
             .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
@@ -56,7 +58,7 @@ class SearchPhotosAdapter:RecyclerView.Adapter<SearchPhotosAdapter.SearchPhotosA
                     target: Target<Drawable>?,
                     isFirstResource: Boolean
                 ): Boolean {
-                    holder.itemView.pb_random.visibility =View.GONE
+                    holder.itemView.pb_random.visibility = View.GONE
                     return false
                 }
 
@@ -67,7 +69,7 @@ class SearchPhotosAdapter:RecyclerView.Adapter<SearchPhotosAdapter.SearchPhotosA
                     dataSource: com.bumptech.glide.load.DataSource?,
                     isFirstResource: Boolean
                 ): Boolean {
-                    holder.itemView.pb_random.visibility =View.GONE
+                    holder.itemView.pb_random.visibility = View.GONE
                     return false
                 }
 
@@ -76,8 +78,8 @@ class SearchPhotosAdapter:RecyclerView.Adapter<SearchPhotosAdapter.SearchPhotosA
             .into(holder.itemView.iv_random_picture)
 
         holder.itemView.iv_random_picture.setOnClickListener {
-            val intent = Intent(holder.itemView.context,SearchPhotoDetailsActivity::class.java)
-            intent.putExtra("searchData",data[position])
+            val intent = Intent(holder.itemView.context, SearchPhotoDetailsActivity::class.java)
+            intent.putExtra("searchData", data[position])
             holder.itemView.context.startActivity(intent)
         }
 
@@ -85,6 +87,6 @@ class SearchPhotosAdapter:RecyclerView.Adapter<SearchPhotosAdapter.SearchPhotosA
     }
 
     override fun getItemCount(): Int {
-      return data.size
+        return data.size
     }
 }

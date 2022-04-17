@@ -1,14 +1,14 @@
-package com.example.picsar.ui.data.model
+package com.example.picsar.picsar.data.model
 
 
 import com.google.gson.annotations.SerializedName
 import androidx.annotation.Keep
 import java.io.Serializable
 
-class TopicResponse : ArrayList<TopicResponseItem>() {}
+
 
 @Keep
-data class TopicResponseItem(
+data class TopicDtoItem(
     @SerializedName("cover_photo")
     var coverPhoto: CoverPhoto?,
     @SerializedName("current_user_contributions")
@@ -112,7 +112,7 @@ data class Owner(
     @SerializedName("portfolio_url")
     var portfolioUrl: String?, // https://unsplash.com
     @SerializedName("profile_image")
-    var profileImage: ProfileImage?,
+    var profileImage: UserImage?,
     @SerializedName("social")
     var social: Social?,
     @SerializedName("total_collections")

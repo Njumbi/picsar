@@ -1,6 +1,5 @@
-package com.example.picsar.ui
+package com.example.picsar.picsar
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,31 +7,24 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.ViewModelProvider
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.picsar.R
-import com.example.picsar.ui.adapters.SearchPhotosAdapter
-import com.example.picsar.ui.data.ApiClient
-import com.example.picsar.ui.data.model.PhotosResponseItem
-import com.example.picsar.ui.data.model.SearchResponse
-import com.example.picsar.ui.viewmodel.SearchPicturesVM
+import com.example.picsar.picsar.ui.adapters.SearchPhotosAdapter
+import com.example.picsar.picsar.ui.viewmodel.SearchPicturesVM
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_search_photos.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
+@AndroidEntryPoint
 class SearchPhotosActivity : AppCompatActivity() {
     private lateinit var adapter: SearchPhotosAdapter
 
-    private lateinit var searchedPhotosVM: SearchPicturesVM
+    private val searchVm: SearchPicturesVM by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_photos)
-
-        searchedPhotosVM = ViewModelProvider(this).get(SearchPicturesVM::class.java)
 
         setSupportActionBar(toolbarOne)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -44,7 +36,6 @@ class SearchPhotosActivity : AppCompatActivity() {
 
 
         adapter = SearchPhotosAdapter()
-
         rv_photos_search.layoutManager = GridLayoutManager(this, 2)
         rv_photos_search.adapter = adapter
 
@@ -71,23 +62,46 @@ class SearchPhotosActivity : AppCompatActivity() {
 
         })
 
+
+        searchVm.searchedPhotos.observe(this) {
+            if (it.isNullOrEmpty()) {
+                tv_search_no_data.visibility = View.VISIBLE
+            }
+            tv_search_no_data.visibility = View.GONE
+            adapter.setData(it!!)
+        }
+
+        searchVm.errorMessage.observe(this) { error ->
+            error?.let {
+                tv_search_no_data.visibility = View.VISIBLE
+                tv_search_no_data.text = error
+            }
+        }
+
     }
 
-    private fun search(query:String) {
-      Log.d("this is the query",query)
+
+    private fun search(query: String) {
+        Log.d("quer", query)
+        searchVm.loadSearchedPhotos(query)
+    }
+
+
+    /*private fun search(query: String) {
+        Log.d("this is the query", query)
         searchedPhotosVM?.loadSearchedPhotos(query)
 
-        searchedPhotosVM?.searchedPhotosLiveData?.observe(this,{
-            if (it is SearchResponse){
-                if(it?.results.isNullOrEmpty()){
+        searchedPhotosVM?.searchedPhotosLiveData?.observe(this, {
+            if (it is SearchResponse) {
+                if (it?.results.isNullOrEmpty()) {
                     tv_search_no_data.visibility = View.VISIBLE
-                }else{
+                } else {
                     adapter.setData(it.results!!)
                     tv_search_no_data.visibility = View.GONE
                 }
 
 
-            }else{
+            } else {
                 Toast.makeText(
                     this,
                     it.toString(),
@@ -97,10 +111,9 @@ class SearchPhotosActivity : AppCompatActivity() {
 
             }
         })
-    }
+    }*/
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home)
-            finish()
+        if (item.itemId == android.R.id.home) finish()
         return super.onOptionsItemSelected(item)
     }
 }
