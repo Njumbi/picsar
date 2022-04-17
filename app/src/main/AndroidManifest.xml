@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
 
     <application
+        android:name=".picsar.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,16 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Picsar">
         <activity
-            android:name=".ui.SearchPhotoDetailsActivity"
+            android:name=".picsar.SearchPhotoDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.ExploreActivity"
+            android:name=".picsar.ExploreActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.WallpaperActivity"
+            android:name=".picsar.WallpaperActivity"
             android:exported="true" />
-        <activity android:name=".ui.SearchPhotosActivity" />
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".picsar.SearchPhotosActivity" />
+        <activity android:name=".picsar.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
