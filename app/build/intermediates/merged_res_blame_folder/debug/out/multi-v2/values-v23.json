@@ -1,0 +1,77 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
+            "map": [
+                {
+                    "source": "/Users/florencewambui/.gradle/caches/transforms-3/bc9f0f943f850053038dbcd163290644/transformed/appcompat-1.4.1/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,487,1371,2267,2386,2513,2735,2959,3074,3181,3294",
+                        "endLines": "2,3,4,5,19,33,34,35,38,42,43,44,45,49",
+                        "endColumns": "134,134,74,86,12,12,118,126,12,12,114,106,112,12",
+                        "endOffsets": "185,320,395,482,1366,2262,2381,2508,2730,2954,3069,3176,3289,3519"
+                    }
+                },
+                {
+                    "source": "/Users/florencewambui/.gradle/caches/transforms-3/6b8564f55caab05ecafb35f57ffc2d6c/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "200"
+                    },
+                    "to": {
+                        "startLines": "50",
+                        "startColumns": "4",
+                        "startOffsets": "3524",
+                        "endLines": "52",
+                        "endColumns": "12",
+                        "endOffsets": "3669"
+                    }
+                },
+                {
+                    "source": "/Users/florencewambui/StudioProjects/picsar/app/src/main/res/values-v23/themes.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "103",
+                        "endLines": "14",
+                        "endColumns": "12",
+                        "endOffsets": "580"
+                    },
+                    "to": {
+                        "startLines": "53",
+                        "startColumns": "4",
+                        "startOffsets": "3674",
+                        "endLines": "64",
+                        "endColumns": "12",
+                        "endOffsets": "4151"
+                    }
+                },
+                {
+                    "source": "/Users/florencewambui/.gradle/caches/transforms-3/ea82423ede7d2db82b69a57e101bc0fd/transformed/material-1.5.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,5,8,13,17,20,23,26,31,34,38",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,271,481,801,1038,1245,1452,1655,1987,2189,2454",
+                        "endLines": "4,7,12,16,19,22,25,30,33,37,41",
+                        "endColumns": "10,10,10,10,10,10,10,10,10,10,10",
+                        "endOffsets": "266,476,796,1033,1240,1447,1650,1982,2184,2449,2722"
+                    },
+                    "to": {
+                        "startLines": "65,68,71,76,80,83,86,89,94,97,101",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4156,4372,4582,4902,5139,5346,5553,5756,6088,6290,6555",
+                        "endLines": "67,70,75,79,82,85,88,93,96,100,104",
+                        "endColumns": "10,10,10,10,10,10,10,10,10,10,10",
+                        "endOffsets": "4367,4577,4897,5134,5341,5548,5751,6083,6285,6550,6823"
+                    }
+                }
+            ]
+        }
+    ]
+}
