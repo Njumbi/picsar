@@ -1,7 +1,6 @@
-package com.example.picsar.ui.fragments
+package com.example.picsar.picsar.ui.fragments
 
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -13,8 +12,6 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_profile.*
 import android.widget.Toast
 
-import com.google.firebase.auth.FirebaseUser
-
 import com.google.firebase.auth.AuthResult
 
 
@@ -23,17 +20,14 @@ import com.google.android.gms.tasks.OnCompleteListener
 
 import android.content.Intent
 import android.util.Log
-import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityCompat.startActivityForResult
-import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.*
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ProfileFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient

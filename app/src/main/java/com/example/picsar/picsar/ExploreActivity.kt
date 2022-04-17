@@ -1,4 +1,4 @@
-package com.example.picsar.ui
+package com.example.picsar.picsar
 
 import android.app.WallpaperManager
 import android.content.Intent
@@ -21,13 +21,15 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.example.picsar.R
-import com.example.picsar.ui.data.model.TopicResponseItem
+import com.example.picsar.picsar.domain.TopicItem
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_explore.*
 import java.io.IOException
 
+@AndroidEntryPoint
 class ExploreActivity : AppCompatActivity() {
 
-    lateinit var topicResponseItem: TopicResponseItem
+    lateinit var topicResponseItem: TopicItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +40,7 @@ class ExploreActivity : AppCompatActivity() {
        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        topicResponseItem = intent.getSerializableExtra("exploreData") as TopicResponseItem
+        topicResponseItem = intent.getParcelableExtra("exploreData")!!
 
         val circularProgressDrawable = CircularProgressDrawable(this)
         circularProgressDrawable.strokeWidth = 5f
@@ -53,14 +55,14 @@ class ExploreActivity : AppCompatActivity() {
         requestOptions.fitCenter()
 
         Glide.with(this)
-            .load(topicResponseItem?.coverPhoto?.urls?.regular)
+            .load(topicResponseItem?.coverPhotoImage?.topicUrlsLinks?.regular)
             .apply(requestOptions)
             .transition(DrawableTransitionOptions.withCrossFade())
             .centerCrop()
             .into(iv_random_wallpaper)
 
     }
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.settings, menu)
         return true
     }
@@ -77,7 +79,7 @@ class ExploreActivity : AppCompatActivity() {
                 try {
                     Glide.with(this)
                         .asBitmap()
-                        .load(topicResponseItem?.coverPhoto?.urls?.regular)
+                        .load(topicResponseItem?.coverPhotoImage?.topicUrlsLinks?.regular)
                         .into(object : SimpleTarget<Bitmap?>() {
                             override fun onResourceReady(
                                 resource: Bitmap,
@@ -106,7 +108,7 @@ class ExploreActivity : AppCompatActivity() {
                 try {
                     Glide.with(this)
                         .asBitmap()
-                        .load(topicResponseItem?.coverPhoto?.urls?.regular)
+                        .load(topicResponseItem?.coverPhotoImage?.topicUrlsLinks?.regular)
                         .into(object : SimpleTarget<Bitmap?>() {
                             @RequiresApi(Build.VERSION_CODES.N)
                             override fun onResourceReady(
@@ -141,7 +143,7 @@ class ExploreActivity : AppCompatActivity() {
                 try {
                     Glide.with(this)
                         .asBitmap()
-                        .load(topicResponseItem?.coverPhoto?.urls?.regular)
+                        .load(topicResponseItem?.coverPhotoImage?.topicUrlsLinks?.regular)
                         .into(object : SimpleTarget<Bitmap?>() {
                             @RequiresApi(Build.VERSION_CODES.N)
                             override fun onResourceReady(
@@ -175,7 +177,7 @@ class ExploreActivity : AppCompatActivity() {
 
                 Glide.with(this)
                     .asBitmap()
-                    .load(topicResponseItem?.coverPhoto?.urls?.regular)
+                    .load(topicResponseItem?.coverPhotoImage?.topicUrlsLinks?.regular)
                     .skipMemoryCache(true)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .into(object : SimpleTarget<Bitmap?>() {

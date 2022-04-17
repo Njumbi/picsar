@@ -1,14 +1,16 @@
-package com.example.picsar.ui
+package com.example.picsar.picsar
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.picsar.R
-import com.example.picsar.ui.fragments.HomeFragment
-import com.example.picsar.ui.fragments.ProfileFragment
-import com.example.picsar.ui.fragments.SearchFragment
+import com.example.picsar.picsar.ui.fragments.HomeFragment
+import com.example.picsar.picsar.ui.fragments.ProfileFragment
+import com.example.picsar.picsar.ui.fragments.SearchFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

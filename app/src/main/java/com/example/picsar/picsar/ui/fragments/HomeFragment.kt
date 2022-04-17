@@ -1,4 +1,4 @@
-package com.example.picsar.ui.fragments
+package com.example.picsar.picsar.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,35 +6,33 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.picsar.R
-import com.example.picsar.ui.AdapterListener
-import com.example.picsar.ui.adapters.HomeAdapter
-import com.example.picsar.ui.data.model.PhotosResponse
-import com.example.picsar.ui.data.model.PhotosResponseItem
-import com.example.picsar.ui.viewmodel.HomeVM
+import com.example.picsar.picsar.AdapterListener
+import com.example.picsar.picsar.ui.adapters.HomeAdapter
+import com.example.picsar.picsar.domain.PhotosItem
+import com.example.picsar.picsar.ui.viewmodel.HomeVM
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.item_list_photos.*
 
+
+@AndroidEntryPoint
 class HomeFragment : Fragment(), AdapterListener {
     private lateinit var adapter: HomeAdapter
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
-
-    private var vm: HomeVM? = null
+    private val homeVM: HomeVM by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        vm = ViewModelProvider(this).get(HomeVM::class.java)
-
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -47,12 +45,17 @@ class HomeFragment : Fragment(), AdapterListener {
 
 //        likeListener()
 
-        adapter = HomeAdapter(this)
+        adapter = HomeAdapter()
         rv_photos.layoutManager =
             LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
         rv_photos.adapter = adapter
 
-        funLoadPhotos()
+        homeVM.getPhotos()
+
+        homeVM.fetchPhotos.observe(viewLifecycleOwner) {
+            adapter.setData(it as List<PhotosItem>)
+        }
+
     }
 
     private fun likeContent() {
@@ -98,24 +101,25 @@ class HomeFragment : Fragment(), AdapterListener {
 //            };
 //    }
 
-    private fun funLoadPhotos() {
-        vm?.funLoadPhotos()
-        vm?.loadPhotosLiveData?.observe(viewLifecycleOwner, {
-            if (it is PhotosResponse) {
-                adapter.setData(it)
-                adapter.setListener(this@HomeFragment)
-            } else {
-                Toast.makeText(
-                    requireActivity(),
-                    it.toString(),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        })
+//    private fun funLoadPhotos() {
+//        vm?.funLoadPhotos()
+//        vm?.loadPhotosLiveData?.observe(viewLifecycleOwner, {
+//            if (it is PhotosDTO) {
+//                adapter.setData(it)
+//                adapter.setListener(this@HomeFragment)
+//            } else {
+//                Toast.makeText(
+//                    requireActivity(),
+//                    it.toString(),
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//        })
+//
+//    }
 
-    }
 
-    override fun myListener(data: PhotosResponseItem) {
+    override fun myListener(data: PhotosItem) {
         Toast.makeText(requireActivity(), "Clicked -> ${data.id}", Toast.LENGTH_SHORT).show()
 
 

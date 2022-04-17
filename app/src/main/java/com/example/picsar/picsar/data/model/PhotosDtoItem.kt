@@ -1,14 +1,13 @@
-package com.example.picsar.ui.data.model
+package com.example.picsar.picsar.data.model
 
 
 import com.google.gson.annotations.SerializedName
 import androidx.annotation.Keep
 import java.io.Serializable
 
-class PhotosResponse : ArrayList<PhotosResponseItem>() {}
 
 @Keep
-data class PhotosResponseItem(
+data class PhotosDtoItem(
     @SerializedName("alt_description")
     var altDescription: String?=null, // brown rocky mountain under white sky during daytime
     @SerializedName("blur_hash")
@@ -194,7 +193,7 @@ data class User(
     @SerializedName("portfolio_url")
     var portfolioUrl: String?, // http://www.lowfidelity.at
     @SerializedName("profile_image")
-    var profileImage: ProfileImage?,
+    var profileImage: ProfileDtoImage?,
     @SerializedName("social")
     var social: Social?,
     @SerializedName("total_collections")
@@ -230,7 +229,7 @@ data class Links(
 ):Serializable
 
 @Keep
-data class ProfileImage(
+data class ProfileDtoImage(
     @SerializedName("large")
     var large: String?, // https://images.unsplash.com/profile-1537596850074-1b4b0ce97f33?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128
     @SerializedName("medium")

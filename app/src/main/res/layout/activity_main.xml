@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context=".ui.MainActivity">
+    tools:context=".picsar.MainActivity">
 
     <FrameLayout
     android:id="@+id/fl_main_holder"
