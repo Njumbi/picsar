@@ -26,17 +26,17 @@
         android:testOnly="true"
         android:theme="@style/Theme.Picsar" >
         <activity
-            android:name="com.example.picsar.picsar.SearchPhotoDetailsActivity"
+            android:name="com.example.picsar.picsar.ui.activities.SearchPhotoDetailsActivity"
             android:exported="true" />
         <activity
-            android:name="com.example.picsar.picsar.ExploreActivity"
+            android:name="com.example.picsar.picsar.ui.activities.ExploreActivity"
             android:exported="true" />
         <activity
-            android:name="com.example.picsar.picsar.WallpaperActivity"
+            android:name="com.example.picsar.picsar.ui.activities.WallpaperActivity"
             android:exported="true" />
-        <activity android:name="com.example.picsar.picsar.SearchPhotosActivity" />
+        <activity android:name="com.example.picsar.picsar.ui.activities.SearchPhotosActivity" />
         <activity
-            android:name="com.example.picsar.picsar.MainActivity"
+            android:name="com.example.picsar.picsar.ui.activities.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

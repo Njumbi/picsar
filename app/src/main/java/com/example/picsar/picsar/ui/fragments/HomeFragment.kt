@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.picsar.R
-import com.example.picsar.picsar.AdapterListener
-import com.example.picsar.picsar.ui.adapters.HomeAdapter
+import com.example.picsar.picsar.ui.adapters.AdapterListener
 import com.example.picsar.picsar.domain.PhotosItem
+import com.example.picsar.picsar.ui.adapters.HomeAdapter
 import com.example.picsar.picsar.ui.viewmodel.HomeVM
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -70,7 +70,7 @@ class HomeFragment : Fragment(), AdapterListener {
     private fun isUserLogged(): Boolean {
         return if (auth.currentUser == null) {
             Toast.makeText(
-                getContext(), "Login to continue", Toast.LENGTH_SHORT
+                context, "Login to continue", Toast.LENGTH_SHORT
             ).show()
             false
         } else

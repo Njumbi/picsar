@@ -12,12 +12,12 @@
         "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-hdpi/baseline_add_circle_outline_black_24dp.png"
     },
     {
-        "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-xxhdpi_baseline_circle_white_36dp.png.flat",
-        "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-xxhdpi/baseline_circle_white_36dp.png"
-    },
-    {
         "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-mdpi_baseline_favorite_red_500_24dp.png.flat",
         "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-mdpi/baseline_favorite_red_500_24dp.png"
+    },
+    {
+        "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-xxhdpi_baseline_circle_white_36dp.png.flat",
+        "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-xxhdpi/baseline_circle_white_36dp.png"
     },
     {
         "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-xxxhdpi_smiley.png.flat",
@@ -36,20 +36,20 @@
         "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-anydpi-v21/baseline_search_grey_400_24dp.xml"
     },
     {
-        "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-mdpi_user.jpeg.flat",
-        "source": "/Users/florencewambui/StudioProjects/picsar/app/src/main/res/drawable-mdpi/user.jpeg"
-    },
-    {
         "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-mdpi_baseline_circle_grey_400_36dp.png.flat",
         "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-mdpi/baseline_circle_grey_400_36dp.png"
     },
     {
-        "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-mdpi_baseline_add_circle_black_24dp.png.flat",
-        "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-mdpi/baseline_add_circle_black_24dp.png"
+        "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-mdpi_user.jpeg.flat",
+        "source": "/Users/florencewambui/StudioProjects/picsar/app/src/main/res/drawable-mdpi/user.jpeg"
     },
     {
         "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-hdpi_baseline_account_circle_black_24dp.png.flat",
         "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-hdpi/baseline_account_circle_black_24dp.png"
+    },
+    {
+        "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-mdpi_baseline_add_circle_black_24dp.png.flat",
+        "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-mdpi/baseline_add_circle_black_24dp.png"
     },
     {
         "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-mdpi_baseline_search_grey_400_18dp.png.flat",
@@ -184,28 +184,28 @@
         "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-ldpi/baseline_more_vert_black_24dp.png"
     },
     {
-        "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-anydpi-v21_baseline_circle_white_48dp.xml.flat",
-        "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-anydpi-v21/baseline_circle_white_48dp.xml"
-    },
-    {
         "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-mdpi_baseline_email_white_24dp.png.flat",
         "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-mdpi/baseline_email_white_24dp.png"
+    },
+    {
+        "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-anydpi-v21_baseline_circle_white_48dp.xml.flat",
+        "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-anydpi-v21/baseline_circle_white_48dp.xml"
     },
     {
         "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-ldpi_baseline_email_white_24dp.png.flat",
         "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-ldpi/baseline_email_white_24dp.png"
     },
     {
-        "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-ldpi_baseline_home_black_24dp.png.flat",
-        "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-ldpi/baseline_home_black_24dp.png"
+        "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-xxhdpi_baseline_home_black_24dp.png.flat",
+        "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-xxhdpi/baseline_home_black_24dp.png"
     },
     {
         "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-hdpi_baseline_circle_white_36dp.png.flat",
         "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-hdpi/baseline_circle_white_36dp.png"
     },
     {
-        "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-xxhdpi_baseline_home_black_24dp.png.flat",
-        "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-xxhdpi/baseline_home_black_24dp.png"
+        "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-ldpi_baseline_home_black_24dp.png.flat",
+        "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-ldpi/baseline_home_black_24dp.png"
     },
     {
         "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-xxxhdpi_baseline_circle_white_48dp.png.flat",
@@ -220,12 +220,12 @@
         "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-xxxhdpi/baseline_more_vert_grey_400_36dp.png"
     },
     {
-        "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-xhdpi_baseline_circle_grey_400_36dp.png.flat",
-        "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-xhdpi/baseline_circle_grey_400_36dp.png"
-    },
-    {
         "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-xhdpi_baseline_explore_black_24dp.png.flat",
         "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-xhdpi/baseline_explore_black_24dp.png"
+    },
+    {
+        "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-xhdpi_baseline_circle_grey_400_36dp.png.flat",
+        "source": "/Users/florencewambui/StudioProjects/picsar/app/build/generated/res/pngs/debug/drawable-xhdpi/baseline_circle_grey_400_36dp.png"
     },
     {
         "merged": "/Users/florencewambui/StudioProjects/picsar/app/build/intermediates/merged_res/debug/drawable-xxxhdpi_baseline_more_vert_black_24dp.png.flat",

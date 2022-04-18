@@ -14,16 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Picsar">
         <activity
-            android:name=".picsar.SearchPhotoDetailsActivity"
+            android:name=".picsar.ui.activities.SearchPhotoDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".picsar.ExploreActivity"
+            android:name=".picsar.ui.activities.ExploreActivity"
             android:exported="true" />
         <activity
-            android:name=".picsar.WallpaperActivity"
+            android:name=".picsar.ui.activities.WallpaperActivity"
             android:exported="true" />
-        <activity android:name=".picsar.SearchPhotosActivity" />
-        <activity android:name=".picsar.MainActivity"
+        <activity android:name=".picsar.ui.activities.SearchPhotosActivity" />
+        <activity android:name=".picsar.ui.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

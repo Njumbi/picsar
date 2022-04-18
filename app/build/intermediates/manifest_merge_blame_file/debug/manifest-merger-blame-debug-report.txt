@@ -48,29 +48,29 @@
 27-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:15:9-44
 28        <activity
 28-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:16:9-18:39
-29            android:name="com.example.picsar.picsar.SearchPhotoDetailsActivity"
-29-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:17:13-62
+29            android:name="com.example.picsar.picsar.ui.activities.SearchPhotoDetailsActivity"
+29-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:17:13-76
 30            android:exported="true" />
 30-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:18:13-36
 31        <activity
 31-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:19:9-21:39
-32            android:name="com.example.picsar.picsar.ExploreActivity"
-32-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:20:13-51
+32            android:name="com.example.picsar.picsar.ui.activities.ExploreActivity"
+32-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:20:13-65
 33            android:exported="true" />
 33-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:21:13-36
 34        <activity
 34-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:22:9-24:39
-35            android:name="com.example.picsar.picsar.WallpaperActivity"
-35-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:23:13-53
+35            android:name="com.example.picsar.picsar.ui.activities.WallpaperActivity"
+35-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:23:13-67
 36            android:exported="true" />
 36-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:24:13-36
-37        <activity android:name="com.example.picsar.picsar.SearchPhotosActivity" />
-37-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:25:9-65
-37-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:25:19-62
+37        <activity android:name="com.example.picsar.picsar.ui.activities.SearchPhotosActivity" />
+37-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:25:9-79
+37-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:25:19-76
 38        <activity
 38-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:26:9-33:20
-39            android:name="com.example.picsar.picsar.MainActivity"
-39-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:26:19-54
+39            android:name="com.example.picsar.picsar.ui.activities.MainActivity"
+39-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:26:19-68
 40            android:exported="true" >
 40-->/Users/florencewambui/StudioProjects/picsar/app/src/main/AndroidManifest.xml:27:13-36
 41            <intent-filter>

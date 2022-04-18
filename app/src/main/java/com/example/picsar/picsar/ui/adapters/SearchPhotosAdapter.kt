@@ -12,7 +12,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.example.picsar.R
-import com.example.picsar.picsar.SearchPhotoDetailsActivity
+import com.example.picsar.picsar.ui.activities.SearchPhotoDetailsActivity
 import com.example.picsar.picsar.domain.PhotosItem
 import kotlinx.android.synthetic.main.list_item_random_photos.view.*
 

@@ -6,8 +6,9 @@ import com.example.picsar.picsar.domain.CoverPhotoImage
 import com.example.picsar.picsar.domain.TopicItem
 
 fun TopicDtoItem.toDomain() = TopicItem(
-    coverPhotoImage  = coverPhoto?.toDomain()
+    coverPhotoImage = coverPhoto?.toDomain()
 )
+
 fun CoverPhoto.toDomain() = CoverPhotoImage(
     topicUrlsLinks = urls?.toDomain()
 )

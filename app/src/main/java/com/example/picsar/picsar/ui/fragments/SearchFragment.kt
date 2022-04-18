@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.picsar.R
-import com.example.picsar.picsar.SearchPhotosActivity
+import com.example.picsar.picsar.ui.activities.SearchPhotosActivity
 import com.example.picsar.picsar.ui.adapters.SearchAdapter
 import com.example.picsar.picsar.ui.viewmodel.SearchVM
 import dagger.hilt.android.AndroidEntryPoint

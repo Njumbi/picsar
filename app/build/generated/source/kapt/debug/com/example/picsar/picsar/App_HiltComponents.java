@@ -2,6 +2,11 @@ package com.example.picsar.picsar;
 
 import androidx.hilt.lifecycle.ViewModelFactoryModules;
 import com.example.picsar.picsar.di.AppModule;
+import com.example.picsar.picsar.ui.activities.ExploreActivity_GeneratedInjector;
+import com.example.picsar.picsar.ui.activities.MainActivity_GeneratedInjector;
+import com.example.picsar.picsar.ui.activities.SearchPhotoDetailsActivity_GeneratedInjector;
+import com.example.picsar.picsar.ui.activities.SearchPhotosActivity_GeneratedInjector;
+import com.example.picsar.picsar.ui.activities.WallpaperActivity_GeneratedInjector;
 import com.example.picsar.picsar.ui.fragments.HomeFragment_GeneratedInjector;
 import com.example.picsar.picsar.ui.fragments.ProfileFragment_GeneratedInjector;
 import com.example.picsar.picsar.ui.fragments.SearchFragment_GeneratedInjector;

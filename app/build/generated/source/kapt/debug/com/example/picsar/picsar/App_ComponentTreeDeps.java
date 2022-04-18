@@ -20,12 +20,12 @@ import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_compo
 import hilt_aggregated_deps._androidx_hilt_lifecycle_ViewModelFactoryModules_ActivityModuleModuleDeps;
 import hilt_aggregated_deps._androidx_hilt_lifecycle_ViewModelFactoryModules_FragmentModuleModuleDeps;
 import hilt_aggregated_deps._com_example_picsar_picsar_App_GeneratedInjector;
-import hilt_aggregated_deps._com_example_picsar_picsar_ExploreActivity_GeneratedInjector;
-import hilt_aggregated_deps._com_example_picsar_picsar_MainActivity_GeneratedInjector;
-import hilt_aggregated_deps._com_example_picsar_picsar_SearchPhotoDetailsActivity_GeneratedInjector;
-import hilt_aggregated_deps._com_example_picsar_picsar_SearchPhotosActivity_GeneratedInjector;
-import hilt_aggregated_deps._com_example_picsar_picsar_WallpaperActivity_GeneratedInjector;
 import hilt_aggregated_deps._com_example_picsar_picsar_di_AppModule;
+import hilt_aggregated_deps._com_example_picsar_picsar_ui_activities_ExploreActivity_GeneratedInjector;
+import hilt_aggregated_deps._com_example_picsar_picsar_ui_activities_MainActivity_GeneratedInjector;
+import hilt_aggregated_deps._com_example_picsar_picsar_ui_activities_SearchPhotoDetailsActivity_GeneratedInjector;
+import hilt_aggregated_deps._com_example_picsar_picsar_ui_activities_SearchPhotosActivity_GeneratedInjector;
+import hilt_aggregated_deps._com_example_picsar_picsar_ui_activities_WallpaperActivity_GeneratedInjector;
 import hilt_aggregated_deps._com_example_picsar_picsar_ui_fragments_HomeFragment_GeneratedInjector;
 import hilt_aggregated_deps._com_example_picsar_picsar_ui_fragments_ProfileFragment_GeneratedInjector;
 import hilt_aggregated_deps._com_example_picsar_picsar_ui_fragments_SearchFragment_GeneratedInjector;
@@ -75,12 +75,12 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_Ac
     },
     aggregatedDeps = {
         _com_example_picsar_picsar_App_GeneratedInjector.class,
-        _com_example_picsar_picsar_ExploreActivity_GeneratedInjector.class,
-        _com_example_picsar_picsar_MainActivity_GeneratedInjector.class,
-        _com_example_picsar_picsar_SearchPhotoDetailsActivity_GeneratedInjector.class,
-        _com_example_picsar_picsar_SearchPhotosActivity_GeneratedInjector.class,
-        _com_example_picsar_picsar_WallpaperActivity_GeneratedInjector.class,
         _com_example_picsar_picsar_di_AppModule.class,
+        _com_example_picsar_picsar_ui_activities_ExploreActivity_GeneratedInjector.class,
+        _com_example_picsar_picsar_ui_activities_MainActivity_GeneratedInjector.class,
+        _com_example_picsar_picsar_ui_activities_SearchPhotoDetailsActivity_GeneratedInjector.class,
+        _com_example_picsar_picsar_ui_activities_SearchPhotosActivity_GeneratedInjector.class,
+        _com_example_picsar_picsar_ui_activities_WallpaperActivity_GeneratedInjector.class,
         _com_example_picsar_picsar_ui_fragments_HomeFragment_GeneratedInjector.class,
         _com_example_picsar_picsar_ui_fragments_ProfileFragment_GeneratedInjector.class,
         _com_example_picsar_picsar_ui_fragments_SearchFragment_GeneratedInjector.class,

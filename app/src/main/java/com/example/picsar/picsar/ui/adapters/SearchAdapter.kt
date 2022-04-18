@@ -12,8 +12,8 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.example.picsar.R
-import com.example.picsar.picsar.ExploreActivity
 import com.example.picsar.picsar.domain.TopicItem
+import com.example.picsar.picsar.ui.activities.ExploreActivity
 import kotlinx.android.synthetic.main.list_item_random_photos.view.*
 
 

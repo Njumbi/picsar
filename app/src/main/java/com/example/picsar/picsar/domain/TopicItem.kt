@@ -15,9 +15,9 @@ data class TopicUrlsLinks(
     val regular: String?,
     val small: String?,
     val thumb: String?,
-):Parcelable
+) : Parcelable
 
 @Parcelize
 data class CoverPhotoImage(
     val topicUrlsLinks: ImageLinks?,
-):Parcelable
+) : Parcelable

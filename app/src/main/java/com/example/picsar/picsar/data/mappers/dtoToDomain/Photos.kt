@@ -1,6 +1,9 @@
 package com.example.picsar.picsar.data.mappers.dtoToDomain
 
-import com.example.picsar.picsar.data.model.*
+import com.example.picsar.picsar.data.model.PhotosDtoItem
+import com.example.picsar.picsar.data.model.ProfileDtoImage
+import com.example.picsar.picsar.data.model.Urls
+import com.example.picsar.picsar.data.model.User
 import com.example.picsar.picsar.domain.ImageLinks
 import com.example.picsar.picsar.domain.PhotographerDetails
 import com.example.picsar.picsar.domain.PhotosItem

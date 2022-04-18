@@ -13,8 +13,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.example.picsar.R
-import com.example.picsar.picsar.AdapterListener
-import com.example.picsar.picsar.WallpaperActivity
+import com.example.picsar.picsar.ui.activities.WallpaperActivity
 import com.example.picsar.picsar.domain.PhotosItem
 import com.example.picsar.picsar.ui.fragments.TimeAgo
 import kotlinx.android.synthetic.main.item_list_photos.view.*
@@ -28,7 +27,7 @@ class HomeAdapter() : RecyclerView.Adapter<HomeAdapter.HomeAdapterVH>() {
     fun setData(list: List<PhotosItem>) {
         data.clear()
         data.addAll(list)
-        notifyDataSetChanged()
+        this.notifyDataSetChanged()
     }
 
     fun clear() {

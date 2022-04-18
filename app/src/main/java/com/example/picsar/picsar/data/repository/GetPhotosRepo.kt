@@ -10,6 +10,7 @@ import javax.inject.Inject
 interface GetPhotosRepo {
     suspend fun getPhotos(): ApiResource<List<PhotosItem>>
 }
+
 class GetPhotosRepoImpl @Inject constructor(val apiService: ApiService) : GetPhotosRepo {
 
     override suspend fun getPhotos() = safeApiCall {
